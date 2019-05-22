@@ -1,19 +1,22 @@
 #include <stdio.h>
 #include "src/solo.h"
 
-//GetAddress input
-//{"coin":"BTC", "adjust":0, showonscreen":true}
-char* address = "{\"coin\":\"ETH\", \"adjust\":0, \"showonscreen\":true}";
 
-void test_get()
-{
+char* addressBTC = "{\"coin\":\"BTC\", \"adjust\":0, \"showonscreen\":true}";
+char* addressETH = "{\"coin\":\"ETH\", \"adjust\":0, \"showonscreen\":true}";
+char* addressETH2 = "{\"coin\":\"ETH\", \"adjust\":1, \"showonscreen\":true}";
+char* addressEOS = "{\"coin\":\"EOS\", \"adjust\":0, \"showonscreen\":true}";
 
-}
+char* signETH = "{\"coin\":\"ETH\", \"tx\":\"ec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080\"}";
 
-void test_post()
-{
-   
-}
+char* signBTC = "{\"coin\":\"BTC\",\
+                \"tx\":\"f8698084b2d05e008301d4c094859a9c0b44cb7066d956a958b0b82e54c9e44b4b80b844a9059cbb000000000000000000000000f03232ebb232786aff2dab33a6badc173a1656ab0000000000000000000000000000000000000000000000001d24b2dfac520000018080\"\
+                \"utxo\":[\"0100000003e0b11a9515ee6d6b5408af881d6e4475ddbd4f4cabcffa7300fc95367fe53fd0010000006b483045022100d7e836519e2b085cae1ce9c4ee4566e14c31cf276ebc78d45b8655f84f763e5c02204fb483a7a4e5f100cbcdd223f3c21820d9e8c9f6a67f2b06bd52def46634bad901210395e0571b441e0f2fd932906a3fd68a57098a5552dd62e22387139b1f6078223dffffffffe0b11a9515ee6d6b5408af881d6e4475ddbd4f4cabcffa7300fc95367fe53fd0000000006a47304402205efa7719ce8db5454c55c21a97e89ecee20e167b848163225a30b630b2abb870022012a24df9f0c764843b8ee58a56632fc84bda23ccf7a74cade945e7c16796a42701210395e0571b441e0f2fd932906a3fd68a57098a5552dd62e22387139b1f6078223dffffffff09fb2cc0a873800b67fb143983f66d7a02a6fb7402356c64246720f31fb9eeaf010000006a473044022025dda0ab1822b2878496116b36db239aeb982760a86039fdd5c371341378763802206460f35b32a292d20473a867735068c1cff3f006eb27a15922d3b723ce92fb5401210395e0571b441e0f2fd932906a3fd68a57098a5552dd62e22387139b1f6078223dffffffff020046c323000000001976a914cd557a2e83fb75185073a301da772885183b580c88ac1139c005000000001976a914cd557a2e83fb75185073a301da772885183b580c88ac00000000\",\
+                        \"0100000001dee079359248299e3f24e7877c6b1c2f361b54741f00b8056fc5001cdc750794000000006a47304402200dbbca4874b83623ea6c31970df49efbc371c120a933ea7f5ad707f7a0bc57ab02207cd31405cbcb5520e635079f1b8a8bdec9e7ea6c5aa5997ea1ee659ee4efdd7701210395e0571b441e0f2fd932906a3fd68a57098a5552dd62e22387139b1f6078223dffffffff020046c323000000001976a914cd557a2e83fb75185073a301da772885183b580c88ac60b9eb0b000000001976a914cd557a2e83fb75185073a301da772885183b580c88ac00000000\"]\
+                }";
+
+char* signEOS = "{\"coin\":\"EOS\", \"tx\":\"740970d9ff01b504632fede1adc3dfe55990415e4fde01e1b8f315f8136f476c14c2675b01245f705dd7000000000100a6823403ea3055000000572d3ccdcd012029c2ca557a735700000000a8ed3232212029c2ca557a735790558c8677954c3c102700000000000004454f530000000000000000000000000000000000000000000000000000000000000000000000000000\"}";
+
 void main()
 {
     unsigned char v[100] = { 0 };
@@ -21,12 +24,17 @@ void main()
     printf("hello solo\n");
     char *p = NULL;
 
-    p = get(URL_GET_COUNT,0);
-    printf("URL_GET_COUNT return: %s\n",p);
+   // p = get(URL_GET_COUNT,0);
+   // printf("URL_GET_COUNT return: %s\n",p);
 
-    p = get(URL_GET_INFO,0);
-    printf("URL_GET_INFO return: %s\n",p);
+   // p = get(URL_GET_INFO,0);
+   // printf("URL_GET_INFO return: %s\n",p);
 
-    p = post(URL_POST_ADDRESS,0,address);
-    printf("URL_POST_ADDRESS return: %s\n",p);
+    //p = post(URL_POST_ADDRESS,0,addressETH);
+    //printf("URL_POST_ADDRESS return: %s\n",p);
+
+    p = post(URL_POST_SIGN,0,signEOS);
+    printf("URL_POST_SIGN return: %s\n",p);
+
+
 }

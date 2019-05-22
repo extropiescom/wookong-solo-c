@@ -11,6 +11,9 @@ const uint32_t puiCYBPath[] = {0, 0x8000002c, 0x00000001, 0x80000000, 0x00000000
 const uint32_t puiNEOPath[] = {0, 0x8000002C, 0x80000378, 0x80000000, 0x00000000, 0x00000000};
 const uint32_t puiEOSPath[] = {0, 0x8000002C, 0x800000c2, 0x80000000, 0x00000000, 0x00000000};
 const uint32_t puiETCPath[] = {0, 0x8000002C, 0x8000003d, 0x80000000, 0x00000000, 0x00000000};*/
+void ByteToHexStr(const unsigned char* source, char* dest, int sourceLen);
+void HexStrToBytes(const char* source, unsigned char* dest, int sourceLen);
+int parse_tx(char *data, unsigned char* tx_bytes);
 int parse_showonscreen(char* data);
 int parse_coin(char* json);
 void fethc_path(int coin, unsigned int* path);

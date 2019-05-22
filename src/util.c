@@ -4,6 +4,71 @@
 #include "cJSON/cJSON.h"
 #include "util.h"
 
+
+void ByteToHexStr(const unsigned char* source, char* dest, int sourceLen)
+{
+    short i;
+    unsigned char highByte, lowByte;
+ 
+    for (i = 0; i < sourceLen; i++)
+    {
+        highByte = source[i] >> 4;
+        lowByte = source[i] & 0x0f ;
+ 
+        highByte += 0x30;
+ 
+        if (highByte > 0x39)
+                dest[i * 2] = highByte + 0x07;
+        else
+                dest[i * 2] = highByte;
+ 
+        lowByte += 0x30;
+        if (lowByte > 0x39)
+            dest[i * 2 + 1] = lowByte + 0x07;
+        else
+            dest[i * 2 + 1] = lowByte;
+    }
+    return ;
+}
+
+void HexStrToBytes(const char* source, unsigned char* dest, int sourceLen)
+{
+    short i;
+    unsigned char highByte, lowByte;
+    
+    for (i = 0; i < sourceLen; i += 2)
+    {
+        highByte = toupper(source[i]);
+        lowByte  = toupper(source[i + 1]);
+ 
+        if (highByte > 0x39)
+            highByte -= 0x37;
+        else
+            highByte -= 0x30;
+ 
+        if (lowByte > 0x39)
+            lowByte -= 0x37;
+        else
+            lowByte -= 0x30;
+ 
+        dest[i / 2] = (highByte << 4) | lowByte;
+    }
+    return;
+}
+//ec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080
+int parse_tx(char *data, unsigned char* tx_bytes)
+{
+    char *strTx = NULL;
+    int len = 0;
+    cJSON *obj = cJSON_Parse(data);
+    cJSON *item = cJSON_GetObjectItem(obj, "tx");
+    strTx = cJSON_GetStringValue(item);
+    len = strlen(strTx);
+    //TODO hexstring to bytes
+    HexStrToBytes(strTx,tx_bytes,strlen(strTx));
+    return strlen(strTx)/2;
+}
+
 int parse_showonscreen(char* data)
 {
     cJSON *obj = cJSON_Parse(data);
