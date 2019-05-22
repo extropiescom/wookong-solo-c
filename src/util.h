@@ -1,4 +1,4 @@
-#include "core/PA_EWallet.h"
+#include "PA_EWallet.h"
 
 #define MAX_RESULT_LEN      10240
 #define CODE_RESULT_LEN     1024

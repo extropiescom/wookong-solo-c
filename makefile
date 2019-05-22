@@ -7,7 +7,7 @@ obj =	./src/util.o \
 		./src/solo.o \
 		./src/cJSON/cJSON.o \
 		test.o
-so = ./src/core/dll/libEWallet.so
+so = ./lib/libEWallet.so
 
 all: $(prom)
 

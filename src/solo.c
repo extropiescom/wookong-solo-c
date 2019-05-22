@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "wrapper.h"
 #include "util.h"
-#include "core/PA_EWallet.h"
+#include "PA_EWallet.h"
 
 char *post(char *url, int port, char *data)
 {

@@ -1,7 +1,7 @@
 #include <string.h>
 #include "cJSON/cJSON.h"
 #include "util.h"
-#include "core/PA_EWallet.h"
+#include "PA_EWallet.h"
 #include "sign.h"
 
 char *sign_tx(int coin, char *tx)

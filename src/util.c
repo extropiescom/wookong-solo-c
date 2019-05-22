@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h> 
-#include "core/PA_EWallet.h"
+#include "PA_EWallet.h"
 #include "cJSON/cJSON.h"
 #include "util.h"
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "core/PA_EWallet.h"
+#include "PA_EWallet.h"
 #include "util.h"
 #include "sign.h"
 #include "wrapper.h"
