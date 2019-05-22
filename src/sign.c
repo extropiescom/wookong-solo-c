@@ -13,7 +13,7 @@ char *sign_tx(int coin, char *tx)
 
     PAEW_DevInfo devInfo;
     size_t i = 0;
-
+ 
     unsigned char pbAddressData[PAEW_COIN_ADDRESS_MAX_LEN] = {0};
     size_t nAddressDataLen = 0;
 

@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h> 
 #include "core/PA_EWallet.h"
 #include "cJSON/cJSON.h"
 #include "util.h"
@@ -28,7 +29,7 @@ void ByteToHexStr(const unsigned char* source, char* dest, int sourceLen)
         else
             dest[i * 2 + 1] = lowByte;
     }
-    return ;
+    return;
 }
 
 void HexStrToBytes(const char* source, unsigned char* dest, int sourceLen)
