@@ -13,6 +13,6 @@ sudo code --user-data-dir="~/.vscode-root"
 ```
 ## HOW TO FIND THE .so
 ```
-export LD_LIBRARY_PATH=/home/wookong-solo-c/src/core/dll/:$LD_LIBRARY_PATH
-sudo -s
+export LD_LIBRARY_PATH=/home/wookong-solo-c/test/:$LD_LIBRARY_PATH
 ```
+export LD_LIBRARY_PATH=/home/chester/wookong-solo-rust/src/:$LD_LIBRARY_PATH

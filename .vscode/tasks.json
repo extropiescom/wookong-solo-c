@@ -5,10 +5,9 @@
             "label": "gcc build active file",
             "command": "make",
             "args": [
-                
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/dev/"
             }
         }
     ],

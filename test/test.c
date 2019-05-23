@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "src/solo.h"
+#include "solo.h"
 
 
 char* addressBTC = "{\"coin\":\"BTC\", \"adjust\":0, \"showonscreen\":true}";

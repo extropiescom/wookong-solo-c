@@ -5,6 +5,11 @@
 #include "util.h"
 #include "PA_EWallet.h"
 
+void try_me(void)
+{
+    printf("you got solo c lib! \n");
+}
+
 char *post(char *url, int port, char *data)
 {
     const static char *post_urls[] = {
@@ -16,7 +21,7 @@ char *post(char *url, int port, char *data)
     char *(*post_funcs[])(int, char *) = {post_address, post_sign, post_xrppub, post_update, post_verify};
     char *p = NULL;
     int i = 0;
-    
+    printf("url = %s\n",url);
     if (url == NULL)
     {
         p = create_code(ERR_CODE_BADREQUEST);
@@ -54,7 +59,7 @@ char *get(char *url, int port)
     char *p = NULL;
     int i = 0;
     char *(*get_funcs[])(int) = {get_count, get_info, get_modifypin, get_generate, get_format, get_import, get_reboot};
-
+    printf("url = %s\n",url);
     if (url == NULL)
     {
         p = create_code(ERR_CODE_BADREQUEST);

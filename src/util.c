@@ -123,7 +123,7 @@ char *create_code(int code)
     root = cJSON_CreateObject();
     cJSON_AddNumberToObject(root, "code", code);
 
-    p = cJSON_Print(root);
+    p = cJSON_PrintUnformatted(root);
     strcpy(out, p);
     return out;
 }
@@ -141,7 +141,7 @@ char *create_code_result_int(int code, char *tag, int value)
     cJSON_AddItemToObject(root, "result", result = cJSON_CreateObject());
     cJSON_AddNumberToObject(result, tag, value);
 
-    p = cJSON_Print(root);
+    p = cJSON_PrintUnformatted(root);
     strcpy(out, p);
     return out;
 }
@@ -159,7 +159,7 @@ char *create_code_result_str(int code, char *tag, char *str)
     cJSON_AddItemToObject(root, "result", result = cJSON_CreateObject());
     cJSON_AddStringToObject(result, tag, str);
 
-    p = cJSON_Print(root);
+    p = cJSON_PrintUnformatted(root);
     strcpy(out, p);
     return out;
 }
@@ -202,7 +202,7 @@ char *create_devinfo(int code, PAEW_DevInfo devInfo)
     array_char2int(devInfo.pbBLEVersion, iBuffer, 4);
     cJSON_AddItemToObject(result, "pbBLEVersion", cJSON_CreateIntArray(iBuffer, 4));
 
-    p = cJSON_Print(root);
+    p = cJSON_PrintUnformatted(root);
     strcpy(out, p);
     return out;
 }
