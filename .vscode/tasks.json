@@ -3,9 +3,9 @@
         {
             "type": "shell",
             "label": "gcc build active file",
-            "command": "gcc",
+            "command": "make",
             "args": [
-                "-g", "-o", "test",  "./src/solo.c", "./src/cJSON/cJSON.c", "./src/util.c", "./src/sign.c", "./src/wrapper.c", "test.c", "./lib/libEWallet.so", "-L.","-Wl,-rpath=.^C"
+                
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

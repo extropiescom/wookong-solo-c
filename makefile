@@ -13,11 +13,11 @@ all: $(prom)
 
 
 $(prom): $(obj)
-	$(cc) -g -o $(prom) $(obj) $(so) -L. -Wl,-rpath=.^C
+	$(cc) -g -o $(prom) $(obj) $(so)
 
 
 %.o: %.c $(deps)
-	$(cc) -c $< -o $@
+	$(cc) -g -c $< -o  $@
 
 clean:
 	rm -rf $(obj) $(prom)
